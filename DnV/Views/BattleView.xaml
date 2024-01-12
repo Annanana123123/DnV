@@ -1,0 +1,981 @@
+﻿<Window x:Class="DnV.ViewModels.BattleView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DnV.ViewModels"
+        mc:Ignorable="d"
+        WindowStyle="None" WindowState="Maximized"
+        Title="BattleView" Width="1920" Height="1080">
+    <!--WindowStyle="None" WindowState="Maximized"-->
+    <Grid Background="#12131A"
+          ShowGridLines="False">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="170"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="50"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="400"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Column="2"
+               Grid.Row="0"
+               Foreground="#FFFFFF"
+               FontSize="30"
+               VerticalContentAlignment="Center"
+               HorizontalContentAlignment="Center"
+               Background="{Binding ColorBackLabel}"
+               Content="VIEW"/>
+        <Grid Grid.Column="1"
+              Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="270"/>
+                <ColumnDefinition Width="50"/>
+            </Grid.ColumnDefinitions>
+            <Image Source="C:\Users\genii\source\repos\DnV\DnV\bin\Debug\Media\Interface\Shit.png"
+                   Grid.Column="2"
+                   Height="50"
+                   VerticalAlignment="Top"/>
+            <TextBox Text="{Binding LeftDF}"
+                     Grid.Column="2"
+                     Height="50"
+                     FontSize="30"
+                     FontFamily="Calibri"
+                     Padding="0 0 0 20"
+                     Margin="0 5 0 0"
+                     BorderThickness="0"
+                     Foreground="#FFFFFF"
+                     IsReadOnly="True"
+                     VerticalAlignment="Top"
+                     VerticalContentAlignment="center"
+                     HorizontalContentAlignment="Center"
+                     Background="Transparent"/>
+            <Image Source="C:\Users\genii\source\repos\DnV\DnV\bin\Debug\Media\Interface\Hard.png"
+                   Grid.Column="2"
+                   Height="50"
+                   Margin="0 50 0 0"
+                   VerticalAlignment="Top"/>
+            <TextBox Text="{Binding LeftHP}"
+                     Grid.Column="2"
+                     Height="50"
+                     FontSize="30"
+                     FontFamily="Calibri"
+                     Margin="0 50 0 0"
+                     Padding="0 0 0 20"
+                     BorderThickness="0"
+                     Foreground="#FFFFFF"
+                     IsReadOnly="True"
+                     VerticalAlignment="Top"
+                     VerticalContentAlignment="center"
+                     HorizontalContentAlignment="Center"
+                     Background="Transparent"/>
+            <StackPanel Grid.Column="2"
+                        Orientation="Vertical"
+                        Margin="0 100 0 0">
+                <ItemsControl ItemsSource="{Binding LeftStackPanelStatusImag}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Image Height="50"
+                                   Source="{Binding Imag}"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+            <Image Grid.Column="1"
+                   Source="{Binding LeftSourceImag}"
+                   VerticalAlignment="Center"/>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <!--<Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>-->
+                <StackPanel Orientation="Horizontal"
+                            Grid.Row="0"
+                            HorizontalAlignment="Left">
+                    <Button FontSize="27"
+                        Background="#12131A"
+                        BorderBrush="#2A72E9"
+                        BorderThickness="0"
+                        Foreground="#2A72E9"
+                        ToolTip="Добавить монитор"
+                        Command="{Binding LStatusBtn_1}">
+                    <Image Margin="0 0 0 0"
+                           Source="C:\Users\genii\source\repos\DnV\DnV\bin\Debug\Media\Interface\status_1.png" />
+                </Button>
+                    <Button FontSize="27"
+                        Background="#12131A"
+                        BorderBrush="#2A72E9"
+                        BorderThickness="0"
+                        Foreground="#2A72E9"
+                        ToolTip="Добавить монитор"
+                        Command="{Binding LStatusBtn_2}">
+                        <Image Margin="0 0 0 0"
+                           Source="C:\Users\genii\source\repos\DnV\DnV\bin\Debug\Media\Interface\status_2.png" />
+                    </Button>
+                    <Button FontSize="27"
+                        Background="#12131A"
+                        BorderBrush="#2A72E9"
+                        BorderThickness="0"
+                        Foreground="#2A72E9"
+                        ToolTip="Добавить монитор"
+                        Command="{Binding LStatusBtn_3}">
+                        <Image Margin="0 0 0 0"
+                           Source="C:\Users\genii\source\repos\DnV\DnV\bin\Debug\Media\Interface\status_3.png" />
+                    </Button>
+                    <Button FontSize="27"
+                        Background="#12131A"
+                        BorderBrush="#2A72E9"
+                        BorderThickness="0"
+                        Foreground="#2A72E9"
+                        ToolTip="Добавить монитор"
+                        Command="{Binding LStatusBtn_4}">
+                        <Image Margin="0 0 0 0"
+                           Source="C:\Users\genii\source\repos\DnV\DnV\bin\Debug\Media\Interface\status_4.png" />
+                    </Button>
+                    <Button FontSize="27"
+                        Background="#12131A"
+                        BorderBrush="#2A72E9"
+                        BorderThickness="0"
+                        Foreground="#2A72E9"
+                        ToolTip="Добавить монитор"
+                        Command="{Binding LStatusBtn_5}">
+                        <Image Margin="0 0 0 0"
+                           Source="C:\Users\genii\source\repos\DnV\DnV\bin\Debug\Media\Interface\status_5.png" />
+                    </Button>
+                    <Button FontSize="27"
+                        Background="#12131A"
+                        BorderBrush="#2A72E9"
+                        BorderThickness="0"
+                        Foreground="#2A72E9"
+                        ToolTip="Добавить монитор"
+                        Command="{Binding LStatusBtn_6}">
+                        <Image Margin="0 0 0 0"
+                           Source="C:\Users\genii\source\repos\DnV\DnV\bin\Debug\Media\Interface\status_6.png" />
+                    </Button>
+                    <Button FontSize="27"
+                        Background="#12131A"
+                        BorderBrush="#2A72E9"
+                        BorderThickness="0"
+                        Foreground="#2A72E9"
+                        ToolTip="Добавить монитор"
+                        Command="{Binding LStatusBtn_7}">
+                        <Image Margin="0 0 0 0"
+                           Source="C:\Users\genii\source\repos\DnV\DnV\bin\Debug\Media\Interface\status_7.png" />
+                    </Button>
+                    <Button FontSize="27"
+                        Background="#12131A"
+                        BorderBrush="#2A72E9"
+                        BorderThickness="0"
+                        Foreground="#2A72E9"
+                        ToolTip="Добавить монитор"
+                        Command="{Binding LStatusBtn_8}">
+                        <Image Margin="0 0 0 0"
+                           Source="C:\Users\genii\source\repos\DnV\DnV\bin\Debug\Media\Interface\status_8.png" />
+                    </Button>
+                    <Button FontSize="27"
+                        Background="#12131A"
+                        BorderBrush="#2A72E9"
+                        BorderThickness="0"
+                        Foreground="#2A72E9"
+                        ToolTip="Добавить монитор"
+                        Command="{Binding LStatusBtn_9}">
+                        <Image Margin="0 0 0 0"
+                           Source="C:\Users\genii\source\repos\DnV\DnV\bin\Debug\Media\Interface\status_9.png" />
+                    </Button>
+                    <Button FontSize="27"
+                        Background="#12131A"
+                        BorderBrush="#2A72E9"
+                        BorderThickness="0"
+                        Foreground="#2A72E9"
+                        ToolTip="Добавить монитор"
+                        Command="{Binding LStatusBtn_10}">
+                        <Image Margin="0 0 0 0"
+                           Source="C:\Users\genii\source\repos\DnV\DnV\bin\Debug\Media\Interface\status_10.png" />
+                    </Button>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"
+                            Grid.Row="1"
+                            HorizontalAlignment="Left">
+                    <Button FontSize="27"
+                        Background="#12131A"
+                        BorderBrush="#2A72E9"
+                        BorderThickness="0"
+                        Foreground="#2A72E9"
+                        ToolTip="Добавить монитор"
+                        Command="{Binding LStatusBtn_11}">
+                        <Image Margin="0 0 0 0"
+                           Source="C:\Users\genii\source\repos\DnV\DnV\bin\Debug\Media\Interface\status_11.png" />
+                    </Button>
+                    <Button FontSize="27"
+                        Background="#12131A"
+                        BorderBrush="#2A72E9"
+                        BorderThickness="0"
+                        Foreground="#2A72E9"
+                        ToolTip="Добавить монитор"
+                        Command="{Binding LStatusBtn_12}">
+                        <Image Margin="0 0 0 0"
+                           Source="C:\Users\genii\source\repos\DnV\DnV\bin\Debug\Media\Interface\status_12.png" />
+                    </Button>
+                    <Button FontSize="27"
+                        Background="#12131A"
+                        BorderBrush="#2A72E9"
+                        BorderThickness="0"
+                        Foreground="#2A72E9"
+                        ToolTip="Добавить монитор"
+                        Command="{Binding LStatusBtn_13}">
+                        <Image Margin="0 0 0 0"
+                           Source="C:\Users\genii\source\repos\DnV\DnV\bin\Debug\Media\Interface\status_13.png" />
+                    </Button>
+                    <Button FontSize="27"
+                        Background="#12131A"
+                        BorderBrush="#2A72E9"
+                        BorderThickness="0"
+                        Foreground="#2A72E9"
+                        ToolTip="Добавить монитор"
+                        Command="{Binding LStatusBtn_14}">
+                        <Image Margin="0 0 0 0"
+                           Source="C:\Users\genii\source\repos\DnV\DnV\bin\Debug\Media\Interface\status_14.png" />
+                    </Button>
+                    <Button FontSize="27"
+                        Background="#12131A"
+                        BorderBrush="#2A72E9"
+                        BorderThickness="0"
+                        Foreground="#2A72E9"
+                        ToolTip="Добавить монитор"
+                        Command="{Binding LStatusBtn_15}">
+                        <Image Margin="0 0 0 0"
+                           Source="C:\Users\genii\source\repos\DnV\DnV\bin\Debug\Media\Interface\status_15.png" />
+                    </Button>
+                    <Button FontSize="27"
+                        Background="#12131A"
+                        BorderBrush="#2A72E9"
+                        BorderThickness="0"
+                        Foreground="#2A72E9"
+                        ToolTip="Добавить монитор"
+                        Command="{Binding LStatusBtn_16}">
+                        <Image Margin="0 0 0 0"
+                           Source="C:\Users\genii\source\repos\DnV\DnV\bin\Debug\Media\Interface\status_16.png" />
+                    </Button>
+                    <Button FontSize="27"
+                        Background="#12131A"
+                        BorderBrush="#2A72E9"
+                        BorderThickness="0"
+                        Foreground="#2A72E9"
+                        ToolTip="Добавить монитор"
+                        Command="{Binding LStatusBtn_17}">
+                        <Image Margin="0 0 0 0"
+                           Source="C:\Users\genii\source\repos\DnV\DnV\bin\Debug\Media\Interface\status_20.png" />
+                    </Button>
+                    <Button FontSize="27"
+                        Background="#12131A"
+                        BorderBrush="#2A72E9"
+                        BorderThickness="0"
+                        Foreground="#2A72E9"
+                        ToolTip="Добавить монитор"
+                        Command="{Binding LStatusBtn_18}">
+                        <Image Margin="0 0 0 0"
+                           Source="C:\Users\genii\source\repos\DnV\DnV\bin\Debug\Media\Interface\status_20.png" />
+                    </Button>
+                    <Button FontSize="27"
+                        Background="#12131A"
+                        BorderBrush="#2A72E9"
+                        BorderThickness="0"
+                        Foreground="#2A72E9"
+                        ToolTip="Добавить монитор"
+                        Command="{Binding LStatusBtn_19}">
+                        <Image Margin="0 0 0 0"
+                           Source="C:\Users\genii\source\repos\DnV\DnV\bin\Debug\Media\Interface\status_20.png" />
+                    </Button>
+                    <Button FontSize="27"
+                        Background="#12131A"
+                        BorderBrush="#2A72E9"
+                        BorderThickness="0"
+                        Foreground="#2A72E9"
+                        ToolTip="Добавить монитор"
+                        Command="{Binding LStatusBtn_20}">
+                        <Image Margin="0 0 0 0"
+                           Source="C:\Users\genii\source\repos\DnV\DnV\bin\Debug\Media\Interface\status_20.png" />
+                    </Button>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"
+                            Grid.Row="2">
+                    <TextBox Text="{Binding LeftCountDamage}"
+                             Width="100"
+                             Height="60"
+                             FontSize="30"
+                             Margin="0 0 10 0"
+                             FontFamily="Calibri"
+                             BorderThickness="1"
+                             BorderBrush="#2A72E9"
+                             Foreground="#FFFFFF"
+                             VerticalAlignment="Top"
+                             VerticalContentAlignment="center"
+                             HorizontalContentAlignment="Center"
+                             Background="Transparent"/>
+                    <Button Content="Урон"
+                            FontSize="25"
+                            MinHeight="41"
+                            FontFamily="Calibri"
+                            Background="#12131A"
+                            BorderBrush="#2A72E9"
+                            BorderThickness="1"
+                            Foreground="#2A72E9"
+                            Padding="20 0 20 0"
+                            ToolTip="Следующий ход"
+                            MinWidth="50"
+                            Command="{Binding LeftDamageBtn}"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+        <Grid Grid.Column="3"
+              Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="270"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+            <Image Source="C:\Users\genii\source\repos\DnV\DnV\bin\Debug\Media\Interface\Shit.png"
+                   Grid.Column="0"
+                   Height="50"
+                   VerticalAlignment="Top"/>
+            <TextBox Text="{Binding RightDF}"
+                     Grid.Column="0"
+                     Height="50"
+                     FontSize="30"
+                     FontFamily="Calibri"
+                     Padding="0 0 0 20"
+                     Margin="0 5 0 0"
+                     BorderThickness="0"
+                     Foreground="#FFFFFF"
+                     IsReadOnly="True"
+                     VerticalAlignment="Top"
+                     VerticalContentAlignment="center"
+                     HorizontalContentAlignment="Center"
+                     Background="Transparent"/>
+            <Image Source="C:\Users\genii\source\repos\DnV\DnV\bin\Debug\Media\Interface\Hard.png"
+                   Grid.Column="0"
+                   Height="50"
+                   Margin="0 50 0 0"
+                   VerticalAlignment="Top"/>
+            <TextBox Text="{Binding RightHP}"
+                     Grid.Column="0"
+                     Height="50"
+                     FontSize="30"
+                     FontFamily="Calibri"
+                     Padding="0 0 0 20"
+                     Margin="0 50 0 0"
+                     BorderThickness="0"
+                     Foreground="#FFFFFF"
+                     IsReadOnly="True"
+                     VerticalAlignment="Top"
+                     VerticalContentAlignment="center"
+                     HorizontalContentAlignment="Center"
+                         Background="Transparent"/>
+            <StackPanel Grid.Column="0"
+                    Orientation="Vertical"
+                    Margin="0 100 0 0">
+                <ItemsControl ItemsSource="{Binding RightStackPanelStatusImag}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Image Height="50"
+                               Source="{Binding Imag}"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+            <Image Grid.Column="1"
+               Source="{Binding RightSourceImag}"
+               VerticalAlignment="Center"/>
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="*"/>
+
+                </Grid.RowDefinitions>
+                <!--<Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>-->
+                <StackPanel Orientation="Horizontal"
+                        Grid.Row="0"
+                        HorizontalAlignment="Left">
+                    <Button FontSize="27"
+                    Background="#12131A"
+                    BorderBrush="#2A72E9"
+                    BorderThickness="0"
+                    Foreground="#2A72E9"
+                    ToolTip="Добавить монитор"
+                    Command="{Binding RStatusBtn_1}">
+                        <Image Margin="0 0 0 0"
+                       Source="C:\Users\genii\source\repos\DnV\DnV\bin\Debug\Media\Interface\status_1.png" />
+                    </Button>
+                    <Button FontSize="27"
+                    Background="#12131A"
+                    BorderBrush="#2A72E9"
+                    BorderThickness="0"
+                    Foreground="#2A72E9"
+                    ToolTip="Добавить монитор"
+                    Command="{Binding RStatusBtn_2}">
+                        <Image Margin="0 0 0 0"
+                       Source="C:\Users\genii\source\repos\DnV\DnV\bin\Debug\Media\Interface\status_2.png" />
+                    </Button>
+                    <Button FontSize="27"
+                    Background="#12131A"
+                    BorderBrush="#2A72E9"
+                    BorderThickness="0"
+                    Foreground="#2A72E9"
+                    ToolTip="Добавить монитор"
+                    Command="{Binding RStatusBtn_3}">
+                        <Image Margin="0 0 0 0"
+                       Source="C:\Users\genii\source\repos\DnV\DnV\bin\Debug\Media\Interface\status_3.png" />
+                    </Button>
+                    <Button FontSize="27"
+                    Background="#12131A"
+                    BorderBrush="#2A72E9"
+                    BorderThickness="0"
+                    Foreground="#2A72E9"
+                    ToolTip="Добавить монитор"
+                    Command="{Binding RStatusBtn_4}">
+                        <Image Margin="0 0 0 0"
+                       Source="C:\Users\genii\source\repos\DnV\DnV\bin\Debug\Media\Interface\status_4.png" />
+                    </Button>
+                    <Button FontSize="27"
+                    Background="#12131A"
+                    BorderBrush="#2A72E9"
+                    BorderThickness="0"
+                    Foreground="#2A72E9"
+                    ToolTip="Добавить монитор"
+                    Command="{Binding RStatusBtn_5}">
+                        <Image Margin="0 0 0 0"
+                       Source="C:\Users\genii\source\repos\DnV\DnV\bin\Debug\Media\Interface\status_5.png" />
+                    </Button>
+                    <Button FontSize="27"
+                    Background="#12131A"
+                    BorderBrush="#2A72E9"
+                    BorderThickness="0"
+                    Foreground="#2A72E9"
+                    ToolTip="Добавить монитор"
+                    Command="{Binding RStatusBtn_6}">
+                        <Image Margin="0 0 0 0"
+                       Source="C:\Users\genii\source\repos\DnV\DnV\bin\Debug\Media\Interface\status_6.png" />
+                    </Button>
+                    <Button FontSize="27"
+                    Background="#12131A"
+                    BorderBrush="#2A72E9"
+                    BorderThickness="0"
+                    Foreground="#2A72E9"
+                    ToolTip="Добавить монитор"
+                    Command="{Binding RStatusBtn_7}">
+                        <Image Margin="0 0 0 0"
+                       Source="C:\Users\genii\source\repos\DnV\DnV\bin\Debug\Media\Interface\status_7.png" />
+                    </Button>
+                    <Button FontSize="27"
+                    Background="#12131A"
+                    BorderBrush="#2A72E9"
+                    BorderThickness="0"
+                    Foreground="#2A72E9"
+                    ToolTip="Добавить монитор"
+                    Command="{Binding RStatusBtn_8}">
+                        <Image Margin="0 0 0 0"
+                       Source="C:\Users\genii\source\repos\DnV\DnV\bin\Debug\Media\Interface\status_8.png" />
+                    </Button>
+                    <Button FontSize="27"
+                    Background="#12131A"
+                    BorderBrush="#2A72E9"
+                    BorderThickness="0"
+                    Foreground="#2A72E9"
+                    ToolTip="Добавить монитор"
+                    Command="{Binding RStatusBtn_9}">
+                        <Image Margin="0 0 0 0"
+                       Source="C:\Users\genii\source\repos\DnV\DnV\bin\Debug\Media\Interface\status_9.png" />
+                    </Button>
+                    <Button FontSize="27"
+                    Background="#12131A"
+                    BorderBrush="#2A72E9"
+                    BorderThickness="0"
+                    Foreground="#2A72E9"
+                    ToolTip="Добавить монитор"
+                    Command="{Binding RStatusBtn_10}">
+                        <Image Margin="0 0 0 0"
+                       Source="C:\Users\genii\source\repos\DnV\DnV\bin\Debug\Media\Interface\status_10.png" />
+                    </Button>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"
+                        Grid.Row="1"
+                        HorizontalAlignment="Left">
+                    <Button FontSize="27"
+                    Background="#12131A"
+                    BorderBrush="#2A72E9"
+                    BorderThickness="0"
+                    Foreground="#2A72E9"
+                    ToolTip="Добавить монитор"
+                    Command="{Binding RStatusBtn_11}">
+                        <Image Margin="0 0 0 0"
+                       Source="C:\Users\genii\source\repos\DnV\DnV\bin\Debug\Media\Interface\status_11.png" />
+                    </Button>
+                    <Button FontSize="27"
+                    Background="#12131A"
+                    BorderBrush="#2A72E9"
+                    BorderThickness="0"
+                    Foreground="#2A72E9"
+                    ToolTip="Добавить монитор"
+                    Command="{Binding RStatusBtn_12}">
+                        <Image Margin="0 0 0 0"
+                       Source="C:\Users\genii\source\repos\DnV\DnV\bin\Debug\Media\Interface\status_12.png" />
+                    </Button>
+                    <Button FontSize="27"
+                    Background="#12131A"
+                    BorderBrush="#2A72E9"
+                    BorderThickness="0"
+                    Foreground="#2A72E9"
+                    ToolTip="Добавить монитор"
+                    Command="{Binding RStatusBtn_13}">
+                        <Image Margin="0 0 0 0"
+                       Source="C:\Users\genii\source\repos\DnV\DnV\bin\Debug\Media\Interface\status_13.png" />
+                    </Button>
+                    <Button FontSize="27"
+                    Background="#12131A"
+                    BorderBrush="#2A72E9"
+                    BorderThickness="0"
+                    Foreground="#2A72E9"
+                    ToolTip="Добавить монитор"
+                    Command="{Binding RStatusBtn_14}">
+                        <Image Margin="0 0 0 0"
+                       Source="C:\Users\genii\source\repos\DnV\DnV\bin\Debug\Media\Interface\status_14.png" />
+                    </Button>
+                    <Button FontSize="27"
+                    Background="#12131A"
+                    BorderBrush="#2A72E9"
+                    BorderThickness="0"
+                    Foreground="#2A72E9"
+                    ToolTip="Добавить монитор"
+                    Command="{Binding RStatusBtn_15}">
+                        <Image Margin="0 0 0 0"
+                       Source="C:\Users\genii\source\repos\DnV\DnV\bin\Debug\Media\Interface\status_15.png" />
+                    </Button>
+                    <Button FontSize="27"
+                    Background="#12131A"
+                    BorderBrush="#2A72E9"
+                    BorderThickness="0"
+                    Foreground="#2A72E9"
+                    ToolTip="Добавить монитор"
+                    Command="{Binding RStatusBtn_16}">
+                        <Image Margin="0 0 0 0"
+                       Source="C:\Users\genii\source\repos\DnV\DnV\bin\Debug\Media\Interface\status_16.png" />
+                    </Button>
+                    <Button FontSize="27"
+                    Background="#12131A"
+                    BorderBrush="#2A72E9"
+                    BorderThickness="0"
+                    Foreground="#2A72E9"
+                    ToolTip="Добавить монитор"
+                    Command="{Binding RStatusBtn_17}">
+                        <Image Margin="0 0 0 0"
+                       Source="C:\Users\genii\source\repos\DnV\DnV\bin\Debug\Media\Interface\status_20.png" />
+                    </Button>
+                    <Button FontSize="27"
+                    Background="#12131A"
+                    BorderBrush="#2A72E9"
+                    BorderThickness="0"
+                    Foreground="#2A72E9"
+                    ToolTip="Добавить монитор"
+                    Command="{Binding RStatusBtn_18}">
+                        <Image Margin="0 0 0 0"
+                       Source="C:\Users\genii\source\repos\DnV\DnV\bin\Debug\Media\Interface\status_20.png" />
+                    </Button>
+                    <Button FontSize="27"
+                    Background="#12131A"
+                    BorderBrush="#2A72E9"
+                    BorderThickness="0"
+                    Foreground="#2A72E9"
+                    ToolTip="Добавить монитор"
+                    Command="{Binding RStatusBtn_19}">
+                        <Image Margin="0 0 0 0"
+                       Source="C:\Users\genii\source\repos\DnV\DnV\bin\Debug\Media\Interface\status_20.png" />
+                    </Button>
+                    <Button FontSize="27"
+                    Background="#12131A"
+                    BorderBrush="#2A72E9"
+                    BorderThickness="0"
+                    Foreground="#2A72E9"
+                    ToolTip="Добавить монитор"
+                    Command="{Binding RStatusBtn_20}">
+                        <Image Margin="0 0 0 0"
+                       Source="C:\Users\genii\source\repos\DnV\DnV\bin\Debug\Media\Interface\status_20.png" />
+                    </Button>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"
+                            Grid.Row="2">
+                    <TextBox Text="{Binding RightCountDamage}"
+                             Width="100"
+                             Height="60"
+                             FontSize="30"
+                             Margin="0 0 10 0"
+                             FontFamily="Calibri"
+                             BorderThickness="1"
+                             BorderBrush="#2A72E9"
+                             Foreground="#FFFFFF"
+                             VerticalAlignment="Top"
+                             VerticalContentAlignment="center"
+                             HorizontalContentAlignment="Center"
+                             Background="Transparent"/>
+                    <Button Content="Урон"
+                            FontSize="25"
+                            MinHeight="41"
+                            FontFamily="Calibri"
+                            Background="#12131A"
+                            BorderBrush="#2A72E9"
+                            BorderThickness="1"
+                            Foreground="#2A72E9"
+                            Padding="20 0 20 0"
+                            ToolTip="Следующий ход"
+                            MinWidth="50"
+                            Command="{Binding RightDamageBtn}"/>
+                </StackPanel>
+                <Grid Grid.Row="3"
+                  Background="#12131A">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Content="1D4"
+                        Grid.Column="0"
+                        Grid.Row="0"
+                        FontSize="40"
+                        MinHeight="70"
+                        FontFamily="Calibri"
+                        Background="#12131A"
+                        BorderBrush="#2A72E9"
+                        BorderThickness="1"
+                        Foreground="#2A72E9"
+                        ToolTip="1D4"
+                        MinWidth="50"
+                        Command="{Binding D4}"/>
+                    <Button Content="1D6"
+                        Grid.Column="1"
+                        Grid.Row="0"
+                        FontSize="40"
+                        MinHeight="70"
+                        FontFamily="Calibri"
+                        Background="#12131A"
+                        BorderBrush="#2A72E9"
+                        BorderThickness="1"
+                        Foreground="#2A72E9"
+                        ToolTip="1D6"
+                        MinWidth="50"
+                        Command="{Binding D6}"/>
+                    <Button Content="1D8"
+                        Grid.Column="2"
+                        Grid.Row="0"
+                        FontSize="40"
+                        MinHeight="70"
+                        FontFamily="Calibri"
+                        Background="#12131A"
+                        BorderBrush="#2A72E9"
+                        BorderThickness="1"
+                        Foreground="#2A72E9"
+                        ToolTip="1D8"
+                        MinWidth="50"
+                        Command="{Binding D8}"/>
+                    <Button Content="1D10"
+                        Grid.Column="0"
+                        Grid.Row="1"
+                        FontSize="40"
+                        MinHeight="70"
+                        FontFamily="Calibri"
+                        Background="#12131A"
+                        BorderBrush="#2A72E9"
+                        BorderThickness="1"
+                        Foreground="#2A72E9"
+                        ToolTip="1D10"
+                        MinWidth="50"
+                        Command="{Binding D10}"/>
+                    <Button Content="1D12"
+                        Grid.Column="1"
+                        Grid.Row="1"
+                        FontSize="40"
+                        MinHeight="70"
+                        FontFamily="Calibri"
+                        Background="#12131A"
+                        BorderBrush="#2A72E9"
+                        BorderThickness="1"
+                        Foreground="#2A72E9"
+                        ToolTip="1D12"
+                        MinWidth="50"
+                        Command="{Binding D12}"/>
+                    <Button Content="1D20"
+                        Grid.Column="2"
+                        Grid.Row="1"
+                        FontSize="40"
+                        MinHeight="70"
+                        FontFamily="Calibri"
+                        Background="#12131A"
+                        BorderBrush="#2A72E9"
+                        BorderThickness="1"
+                        Foreground="#FFCFE92A"
+                        ToolTip="1D20"
+                        MinWidth="50"
+                        Command="{Binding D20}"/>
+                    <Button Content="1D100"
+                        Grid.Column="0"
+                        Grid.Row="2"
+                        FontSize="40"
+                        MinHeight="70"
+                        FontFamily="Calibri"
+                        Background="#12131A"
+                        BorderBrush="#2A72E9"
+                        BorderThickness="1"
+                        Foreground="#2A72E9"
+                        ToolTip="1D100"
+                        MinWidth="50"
+                        Command="{Binding D100}"/>
+                    <TextBox Grid.Column="1"
+                         Grid.Row="2"
+                         Grid.ColumnSpan="2"
+                         Background="#12131A"
+                         BorderBrush="#FF4D2AE9"
+                         BorderThickness="3"
+                         Foreground="#2A72E9"
+                         FontFamily="Calibri"
+                         FontSize="45"
+                         IsReadOnly="True"
+                         VerticalContentAlignment="Center"
+                         HorizontalContentAlignment="Center"
+                         Text="{Binding Dise}"/>
+                </Grid>
+            </Grid>
+            
+        </Grid>
+        <DataGrid Grid.Row="2"
+                  Grid.Column="1"
+                  Background="#12131A"
+                  x:Name="GridHero"
+                  ItemsSource="{Binding HeroTable, Mode=TwoWay}"
+                  AutoGenerateColumns="False"
+                  ScrollViewer.CanContentScroll="True"
+                  SelectionMode="Single"
+                  CanUserAddRows="False"
+                  IsReadOnly="False"
+                  Margin="0 10 0 0"
+                  ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                  ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                  GridLinesVisibility="all"
+                  VerticalGridLinesBrush="#2A72E9"
+                  RowEditEnding="GridHero_RowEditEnding"
+                  SelectedItem="{Binding CurrentHero, Mode=TwoWay}"
+                  FontSize="20">
+            <DataGrid.Resources>
+                <Style BasedOn="{StaticResource {x:Type DataGrid}}" TargetType="{x:Type DataGrid}">
+                    <Setter Property="HeadersVisibility" Value="Column" />
+                </Style>
+                <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="#1C1C25" />
+                    <Setter Property="Foreground" Value="#888888"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                    <Setter Property="BorderBrush" Value="#32323d"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+                </Style>
+                <Style BasedOn="{StaticResource {x:Type DataGridRow}}" TargetType="{x:Type DataGridRow}">
+                    <Setter Property="Background" Value="#12131A"/>
+                    <Setter Property="Foreground" Value="#999999"/>
+                    <Setter Property="BorderBrush" Value="#32323d"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+                </Style>
+                <Style x:Key="NameCellStyle" TargetType="{x:Type DataGridCell}">
+                    <Style.Setters>
+                        <Setter Property="TextBlock.TextAlignment" Value="Center" />
+                    </Style.Setters>
+                </Style>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Имя" Width="*" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Df" Width="35" Binding="{Binding Defence}" CellStyle="{StaticResource NameCellStyle}"/>
+                <DataGridTextColumn Header="HP" Width="35" Binding="{Binding Health}" CellStyle="{StaticResource NameCellStyle}"/>
+                <DataGridTextColumn Header="Си" Width="35" Binding="{Binding P}" CellStyle="{StaticResource NameCellStyle}"/>
+                <DataGridTextColumn Header="Ло" Width="35" Binding="{Binding D}" CellStyle="{StaticResource NameCellStyle}"/>
+                <DataGridTextColumn Header="Те" Width="35" Binding="{Binding E}" CellStyle="{StaticResource NameCellStyle}"/>
+                <DataGridTextColumn Header="Му" Width="35" Binding="{Binding W}" CellStyle="{StaticResource NameCellStyle}"/>
+                <DataGridTextColumn Header="Ин" Width="35" Binding="{Binding I}" CellStyle="{StaticResource NameCellStyle}"/>
+                <DataGridTextColumn Header="Ха" Width="35" Binding="{Binding C}" CellStyle="{StaticResource NameCellStyle}"/>
+                <DataGridTextColumn Header="ПВ" Width="35" Binding="{Binding PassivWisdom}" CellStyle="{StaticResource NameCellStyle}"/>
+                <DataGridTextColumn Header="Инц" Width="45" Binding="{Binding Initiative}" CellStyle="{StaticResource NameCellStyle}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid Grid.Row="2"
+                  Grid.Column="3"
+                  Background="#12131A"
+                  x:Name="GridNPC"
+                  ItemsSource="{Binding NPCTable, Mode=TwoWay}"
+                  AutoGenerateColumns="False"
+                  ScrollViewer.CanContentScroll="True"
+                  SelectionMode="Single"
+                  CanUserAddRows="False"
+                  IsReadOnly="False"
+                  Margin="0 10 0 0"
+                  ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                  ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                  GridLinesVisibility="all"
+                  VerticalGridLinesBrush="#2A72E9"
+                  RowEditEnding="GridNPC_RowEditEnding"
+                  SelectedItem="{Binding CurrentNPC, Mode=TwoWay}"
+                  FontSize="20">
+            <DataGrid.Resources>
+                <Style BasedOn="{StaticResource {x:Type DataGrid}}" TargetType="{x:Type DataGrid}">
+                    <Setter Property="HeadersVisibility" Value="Column" />
+                </Style>
+                <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="#1C1C25" />
+                    <Setter Property="Foreground" Value="#888888"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                    <Setter Property="BorderBrush" Value="#32323d"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+                </Style>
+                <Style BasedOn="{StaticResource {x:Type DataGridRow}}" TargetType="{x:Type DataGridRow}">
+                    <Setter Property="Background" Value="#12131A"/>
+                    <Setter Property="Foreground" Value="#999999"/>
+                    <Setter Property="BorderBrush" Value="#32323d"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+                </Style>
+                <Style x:Key="NameCellStyle" TargetType="{x:Type DataGridCell}">
+                    <Style.Setters>
+                        <Setter Property="TextBlock.TextAlignment" Value="Center" />
+                    </Style.Setters>
+                </Style>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Имя" Width="*" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Df" Width="35" Binding="{Binding Defence}" CellStyle="{StaticResource NameCellStyle}"/>
+                <DataGridTextColumn Header="HP" Width="35" Binding="{Binding Health}" CellStyle="{StaticResource NameCellStyle}"/>
+                <DataGridTextColumn Header="Си" Width="35" Binding="{Binding P}" CellStyle="{StaticResource NameCellStyle}"/>
+                <DataGridTextColumn Header="Ло" Width="35" Binding="{Binding D}" CellStyle="{StaticResource NameCellStyle}"/>
+                <DataGridTextColumn Header="Те" Width="35" Binding="{Binding E}" CellStyle="{StaticResource NameCellStyle}"/>
+                <DataGridTextColumn Header="Му" Width="35" Binding="{Binding W}" CellStyle="{StaticResource NameCellStyle}"/>
+                <DataGridTextColumn Header="Ин" Width="35" Binding="{Binding I}" CellStyle="{StaticResource NameCellStyle}"/>
+                <DataGridTextColumn Header="Ха" Width="35" Binding="{Binding C}" CellStyle="{StaticResource NameCellStyle}"/>
+                <DataGridTextColumn Header="ПВ" Width="35" Binding="{Binding PassivWisdom}" CellStyle="{StaticResource NameCellStyle}"/>
+                <DataGridTextColumn Header="Инц" Width="45" Binding="{Binding Initiative}" CellStyle="{StaticResource NameCellStyle}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox Grid.Column="3"
+                 Grid.Row="3"
+                 FontSize="20"
+                 Foreground="#AAAAAA"
+                 TextWrapping="Wrap"
+                 BorderThickness="0"
+                 Background="Transparent"
+                 FontFamily="Calibri"
+                 Text="{Binding TextNPC}"/>
+        <TextBox Grid.Column="1"
+                 Grid.Row="3"
+                 FontSize="20"
+                 Foreground="#AAAAAA"
+                 TextWrapping="Wrap"
+                 BorderThickness="0"
+                 Background="Transparent"
+                 FontFamily="Calibri"
+                 Text="{Binding TextHero}"/>
+        <StackPanel Orientation="Vertical"
+                    Grid.Column="2"
+                    Grid.Row="2"
+                    Grid.RowSpan="2">
+            <Button Content="Все NPC"
+                    FontSize="25"
+                    MinHeight="41"
+                    FontFamily="Calibri"
+                    Background="#12131A"
+                    BorderBrush="#2A72E9"
+                    BorderThickness="1"
+                    Foreground="#2A72E9"
+                    ToolTip="Следующий ход"
+                    MinWidth="50"
+                    Margin="10 10 10 0"
+                    Command="{Binding AllNPCBtn}"/>
+            <Button Content="Инициатива"
+                    FontSize="25"
+                    MinHeight="41"
+                    FontFamily="Calibri"
+                    Background="#12131A"
+                    BorderBrush="#2A72E9"
+                    BorderThickness="1"
+                    Foreground="#2A72E9"
+                    ToolTip="Следующий ход"
+                    MinWidth="50"
+                    Margin="10 10 10 0"
+                    Command="{Binding InitiativeBtn}"/>
+            <Button Content="Логотип"
+                    FontSize="30"
+                    MinHeight="41"
+                    FontFamily="Calibri"
+                    Background="#12131A"
+                    BorderBrush="#2A72E9"
+                    BorderThickness="1"
+                    Foreground="#2A72E9"
+                    ToolTip="Следующий ход"
+                    MinWidth="50"
+                    Margin="10 10 10 0"
+                    Command="{Binding ViewLogoBtn}"/>
+            <Button Content="Раунд"
+                    FontSize="30"
+                    FontFamily="Calibri"
+                    Background="#12131A"
+                    BorderBrush="#2A72E9"
+                    BorderThickness="1"
+                    Foreground="#2A72E9"
+                    ToolTip="Следующий ход"
+                    MinWidth="50"
+                    Margin="10 10 10 0"
+                    Command="{Binding NextRoundBtn}"/>
+            <Button Content="Показать"
+                    FontSize="30"
+                    FontFamily="Calibri"
+                    Background="#12131A"
+                    BorderBrush="#2A72E9"
+                    BorderThickness="1"
+                    Foreground="#2A72E9"
+                    ToolTip="Следующий ход"
+                    MinWidth="50"
+                    Margin="10 10 10 0"
+                    Command="{Binding ViewVSBtn}"/>
+            <Button Content="Конец"
+                    FontSize="30"
+                    FontFamily="Calibri"
+                    Background="#12131A"
+                    BorderBrush="#2A72E9"
+                    BorderThickness="1"
+                    Foreground="#2A72E9"
+                    ToolTip="Следующий ход"
+                    MinWidth="50"
+                    Margin="10 10 10 0"
+                    Command="{Binding EndBattleBtn}"/>
+        </StackPanel>
+    </Grid>
+</Window>

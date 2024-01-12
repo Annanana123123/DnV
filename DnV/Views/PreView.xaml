@@ -1,0 +1,203 @@
+﻿<Window x:Class="DnV.Views.PreView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DnV.Views"
+        mc:Ignorable="d"
+        Title="PreView" Left="0"
+        WindowState="Maximized"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Topmost="True"
+        Width="1980" 
+        Height="1024" 
+         
+        Background="#000000">
+    <!--WindowState="Maximized"
+        WindowStyle="None"
+        AllowsTransparency="True"-->
+    <Grid ShowGridLines="False">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="50"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Image Source="{Binding ImageView}"
+               Visibility="{Binding VisibilityImageView}"
+               Grid.Column="0"
+               Grid.Row="0"
+               Grid.RowSpan="3"
+               Grid.ColumnSpan="5"/>
+        <Image Source="C:\Users\genii\source\repos\DnV\DnV\bin\Debug\Media\Interface\vs.png"
+               Grid.Column="2"
+               Grid.Row="1"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"
+               Visibility="{Binding VisibilityVS, FallbackValue=Hidden}"/>
+        <GridSplitter Grid.Row="0"
+                      Grid.Column="0"
+                      Grid.ColumnSpan="5"
+                      VerticalAlignment="Bottom" 
+                      Opacity="0.1"
+                      Width="10"
+                      HorizontalAlignment="Stretch"
+                      Height="3"/>
+        <Grid Grid.Column="1"
+              Grid.Row="1"
+              Visibility="{Binding VisibilityLeftImag, FallbackValue=Hidden}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="700"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="50"/>
+            </Grid.ColumnDefinitions>
+            <Image Source="C:\Users\genii\source\repos\DnV\DnV\bin\Debug\Media\Interface\Shit.png"
+                   Grid.Column="2"
+                   Grid.Row="1"
+                   Height="50"
+                   VerticalAlignment="Top"/>
+            <TextBox Text="{Binding LeftDF}"
+                     Grid.Column="2"
+                     Grid.Row="1"
+                     Height="50"
+                     FontSize="30"
+                     FontFamily="Calibri"
+                     Padding="0 0 0 20"
+                     Margin="0 5 0 0"
+                     BorderThickness="0"
+                     Foreground="#FFFFFF"
+                     IsReadOnly="True"
+                     VerticalAlignment="Top"
+                     VerticalContentAlignment="center"
+                     HorizontalContentAlignment="Center"
+                     Background="Transparent"/>
+            <Image Source="C:\Users\genii\source\repos\DnV\DnV\bin\Debug\Media\Interface\Hard.png"
+                   Grid.Column="2"
+                   Grid.Row="1"
+                   Height="50"
+                   Margin="0 50 0 0"
+                   VerticalAlignment="Top"/>
+            <TextBox Text="{Binding LeftHP}"
+                     Grid.Column="2"
+                     Grid.Row="1"
+                     Height="50"
+                     FontSize="30"
+                     FontFamily="Calibri"
+                     Padding="0 0 0 20"
+                     Margin="0 50 0 0"
+                     BorderThickness="0"
+                     Foreground="#FFFFFF"
+                     IsReadOnly="True"
+                     VerticalAlignment="Top"
+                     VerticalContentAlignment="center"
+                     HorizontalContentAlignment="Center"
+                         Background="Transparent"/>
+            <StackPanel Grid.Column="2"
+                        Grid.Row="1"
+                    Orientation="Vertical"
+                    Margin="0 100 0 0">
+                <ItemsControl ItemsSource="{Binding LeftStackPanelStatusImag}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Image Height="50"
+                               Source="{Binding Imag}"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+            <Image Grid.Column="1"
+                   Grid.Row="1"
+                   Margin="50 50 0 50"
+                   Height="auto"
+                   Width="auto"
+                   Source="{Binding LeftImag}"
+                   VerticalAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Column="3"
+              Grid.Row="1"
+              Visibility="{Binding VisibilityRightImag, FallbackValue=Hidden}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="700"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <StackPanel Grid.Column="0"
+                        Grid.Row="1"
+                    Orientation="Vertical"
+                    Margin="0 0 0 0">
+                <ItemsControl ItemsSource="{Binding RightStackPanelStatusImag}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Image Height="50"
+                               Source="{Binding Imag}"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+            <Image Grid.Column="1"
+                   Grid.Row="1"
+                   Margin="0 50 50 50"
+                   Height="auto"
+                   Width="auto"
+                   Source="{Binding RightImag}"
+                   VerticalAlignment="Center"/>
+        </Grid>
+        <Image Grid.Column="0"
+               Grid.Row="0"
+               Grid.RowSpan="3"
+               Margin="-100"
+               Grid.ColumnSpan="5"
+               Visibility="{Binding VisibilityLogo, FallbackValue=Hidden}"
+               Source="{Binding LogoImag}"/>
+        <Rectangle Grid.Column="0"
+                   Grid.Row="0"
+                   Grid.RowSpan="3"
+                    Grid.ColumnSpan="5"
+                   Fill="#4C000000"
+                   Visibility="{Binding VisibilityLogo, FallbackValue=Hidden}"
+                   />
+        <StackPanel Grid.Column="0"
+                    Grid.Row="0"
+                    Grid.RowSpan="3"
+                    Grid.ColumnSpan="5"
+                    VerticalAlignment="Center"
+                    Visibility="{Binding VisibilityLogo, FallbackValue=Hidden}">
+            <Image 
+               Width="854"
+               Source="C:\Users\genii\source\repos\GamingDnVGit\GamingDnV\bin\Debug\Media\Interface\text.png"/>
+            <TextBox Text="{Binding HistoryName}"
+                     Background="#00000000"
+                     BorderThickness="0"
+                     HorizontalContentAlignment="Center"
+                     FontSize="100" FontFamily="Century Gothic" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBox.Foreground>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFFFBF37" Offset="0"/>
+                        <GradientStop Color="#FFA16E00" Offset="1"/>
+                    </LinearGradientBrush>
+                </TextBox.Foreground>
+                <TextBox.Effect>
+                    <DropShadowEffect Direction="220" BlurRadius="15" ShadowDepth="8"/>
+                </TextBox.Effect>
+            </TextBox>
+        </StackPanel>
+    </Grid>
+</Window>
